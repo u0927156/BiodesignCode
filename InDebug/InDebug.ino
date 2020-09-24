@@ -5,6 +5,7 @@ int ledPin = 12; // Indicator LED will be connected to pin 12
 int voltIn = 0;
 int StimulationTime = 3; // seconds of stimulation time
 unsigned long timeOn; 
+unsigned long StimulationTimeInMillis;
 unsigned long shutOffTime;
 
 int wasOn = 0;
