@@ -3,7 +3,7 @@ int inputPin = 7; // Input will be connected to pin 7
 int outPin = 2; // The voltage output will be to pin 13
 int ledPin = 12; // Indicator LED will be connected to pin 12
 int voltIn = 0; // variable for reading voltage
-int StimulationTime = 3; // seconds of stimulation time
+int StimulationTime = 2.75; // seconds of stimulation time
 unsigned long timeOn; // variable for time stimulation has been on
 unsigned long StimulationTimeInMillis; // Variable for how long to stimulate
 unsigned long shutOffTime; // variable for time to shut off
@@ -21,7 +21,7 @@ void setup() {
   pinMode(inputPin, INPUT);
   pinMode(outPin, OUTPUT);
   pinMode(ledPin, OUTPUT);
-
+  
   // serial for debugging
   Serial.begin(9600);
   // figure out the stimulation time in milliseconds. 
@@ -54,7 +54,7 @@ void loop() {
   
       // get the current time and calculate when to shut off.    
       shutOffTime = timeOn + StimulationTimeInMillis;
-      //Serial.println(timeOn);
+      Serial.println(timeOn);
      // Serial.println(shutOffTime);
     }
     
@@ -66,7 +66,7 @@ void loop() {
   if(isOn == 1 && currTime >= shutOffTime)
   {
     ReceivedOnSignals = 0;
-    Serial.println(currTime);
+    //Serial.println(currTime);
     digitalWrite(outPin, LOW);
     digitalWrite(ledPin, LOW); 
     isOn = 0; 
